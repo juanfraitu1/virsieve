@@ -1,0 +1,17 @@
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+
+FILE_1=$1
+
+FILE_2=$2
+
+# Stop if any error is found
+
+set -ueox pipefail
+
+mkdir -p $SCRIPTPATH/Extracted_Viral
+
+mkdir -p $SCRIPTPATH/Extracted_Viral/lists
+
+cat ${2} | awk '{OFS="|";print$3}' | grep "k[0-9]*" | sort | uniq > $SCRIPTPATH/Extracted_Viral/lists/$(basename ${1%%.*})_list.csv
+
+xargs samtools faidx ${1}  < $SCRIPTPATH/Extracted_Viral/lists/$(basename ${1%%.*})_list.csv > $SCRIPTPATH/Extracted_Viral/$(basename ${1%%.*})_extracted.fa

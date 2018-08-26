@@ -1,0 +1,1 @@
+for i in {57..93}; do ~/scratch/readextractor.txt ~/scratch/Assembly/SRR60336${i}_1_qc_passed_processed/SRR60336${i}_1_qc_passed_processed.contigs.fa ~/scratch/HMM1/SRR60336${i}_1_qc_passed_processed.tblout; done
