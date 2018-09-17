@@ -1,0 +1,8 @@
+#!/bin/bash
+#PBS -l nodes=2:ppn=10
+#PBS -l walltime=24:00:00
+#PBS -A open
+# Get started 
+parallel 'sh ~/scratch/prokkann.sh {}' ::: ~/scratch/Extracted_Viral/*.fa
+# Finish up
+

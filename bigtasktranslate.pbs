@@ -1,0 +1,10 @@
+#!/bin/bash
+#PBS -l nodes=2:ppn=12
+#PBS -l walltime=36:00:00
+#PBS -A open
+# Get started
+echo "Job started on ‘hostname‘ at ‘date‘"
+parallel 'sh ~/scratch/translator.sh {}' ::: ~/scratch/Assembly/SRR60336*/*.contigs.fa
+# Finish up
+echo "Job Ended at ‘date‘"
+

@@ -1,0 +1,10 @@
+#!/bin/bash
+#PBS -l nodes=3:ppn=12
+#PBS -l walltime=48:00:00
+#PBS -A open
+# Get started
+echo "Job started on ‘hostname‘ at ‘date‘"
+parallel 'sh ~/scratch/HMMfinder.sh {}  ~/scratch/Database/proteins.fasta' ::: ~/scratch/Translations/SRR603369*.faa
+# Finish up
+echo "Job Ended at ‘date‘"
+
